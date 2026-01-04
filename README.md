@@ -2,15 +2,15 @@
 Navigating, editing, and relationhships
 01 Navigate sample data ✅
 02 Create, update, and delete data ✅
-    0201 Introduction ✅
-    0202 Edit data in a detail view ✅
-    0203 Use detail views as navigation destinations ✅
-    0204 Create new data ✅
-    0205 Delete data ✅
-    0206 Improve data entry using a sheet
-    0207 Add actions to the sheet
-    0208 Adapt the detail view to different contexts
-    0209 Check your Understanding
+    0200 Introduction ✅
+    0201 Edit data in a detail view ✅
+    0202 Use detail views as navigation destinations ✅
+    0203 Create new data ✅
+    0204 Delete data ✅
+    0205 Improve data entry using a sheet
+    0206 Add actions to the sheet
+    0207 Adapt the detail view to different contexts
+    0208 Check your Understanding
 03 Work with relationships
 
 source

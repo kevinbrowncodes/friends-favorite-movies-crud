@@ -3,8 +3,8 @@ import SwiftData
 
 struct FriendListView: View {
     @Environment(\.modelContext) private var context
-    
     @Query(sort: \Friend.name) private var friends: [Friend]
+    @State private var newFriend: Friend?
     
     var body: some View {
         NavigationSplitView {
@@ -25,6 +25,11 @@ struct FriendListView: View {
                     EditButton()
                 }
             }
+            .sheet(item: $newFriend) { friend in
+                NavigationStack {
+                    FriendDetailView(friend: friend)
+                }
+            }
         } detail: {
             Text("Select a friend")
                 .navigationTitle("Friend")
@@ -33,7 +38,9 @@ struct FriendListView: View {
     }
     
     private func addFriend() {
-        context.insert(Friend(name: "New friend"))
+        let newFriend = Friend(name: "")
+        context.insert(newFriend)
+        self.newFriend = newFriend
     }
     
     private func deleteFriend (indexes: IndexSet) {
