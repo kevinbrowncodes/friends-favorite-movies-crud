@@ -8,7 +8,7 @@ Navigating, editing, and relationhships
     0203 Create new data ✅
     0204 Delete data ✅
     0205 Improve data entry using a sheet ✅
-    0206 Add actions to the sheet
+    0206 Add actions to the sheet ✅
     0207 Adapt the detail view to different contexts
     0208 Check your Understanding
 03 Work with relationships

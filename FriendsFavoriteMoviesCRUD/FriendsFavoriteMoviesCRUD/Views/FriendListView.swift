@@ -11,7 +11,7 @@ struct FriendListView: View {
             List {
                 ForEach(friends) { friend in
                     NavigationLink(friend.name) {
-                        FriendDetailView(friend: friend)
+                        FriendListDetailView(friend: friend)
                     }
                 }
                 .onDelete(perform: deleteFriend(indexes:))
@@ -27,8 +27,9 @@ struct FriendListView: View {
             }
             .sheet(item: $newFriend) { friend in
                 NavigationStack {
-                    FriendDetailView(friend: friend)
+                    FriendListDetailView(friend: friend, isNew: true)
                 }
+                .interactiveDismissDisabled()
             }
         } detail: {
             Text("Select a friend")

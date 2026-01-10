@@ -1,23 +1,22 @@
 import SwiftUI
-import SwiftData
 
-struct MovieDetailView : View {
+struct FriendListDetailView : View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
-    @Bindable var movie: Movie
+    @Bindable var friend: Friend
     let isNew: Bool
     
-    init(movie: Movie, isNew: Bool = false) {
-        self.movie = movie
+    init(friend: Friend, isNew: Bool = false) {
+        self.friend = friend
         self.isNew = isNew
     }
     
     var body: some View {
         Form {
-            TextField("Movie title", text: $movie.title)
-            DatePicker("Release date", selection: $movie.releaseDate, displayedComponents: .date)
+            TextField("Name", text: $friend.name)
+                .autocorrectionDisabled()
         }
-        .navigationTitle(isNew ? "New Movie" : "Movie")
+        .navigationTitle(isNew ? "New Friend" : "Friend")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if isNew {
@@ -28,7 +27,6 @@ struct MovieDetailView : View {
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        context.delete(movie)
                         dismiss()
                     }
                 }
@@ -39,12 +37,12 @@ struct MovieDetailView : View {
 
 #Preview {
     NavigationStack {
-        MovieDetailView(movie: SampleData.shared.movie)
+        FriendListDetailView(friend: SampleData.shared.friend)
     }
 }
 
-#Preview("New Movie") {
+#Preview("New Friend") {
     NavigationStack {
-        MovieDetailView(movie: SampleData.shared.movie, isNew: true)
+        FriendListDetailView(friend: SampleData.shared.friend, isNew: true)
     }
 }
